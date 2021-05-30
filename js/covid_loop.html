@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js loop</title>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+        td,tr{
+            padding: 10px 15px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h4>Global Table</h4>
+    <table>
+        <tbody id="tb" >
+            
+        </tbody>
+    </table>
+    <hr>
+    <h4>Countries</h4>
+    <table>
+        <thead>
+            <tr>
+                <td>No</td>
+                <td>Country</td>
+                <td>NewConfirmed</td>
+                <td>NewDeaths</td>
+                <td>NewRecovered</td>
+                <td>TotalConfirmed</td>
+                <td>TotalDeaths</td>
+                <td>TotalRecovered</td>
+            </tr>
+        </thead>
+        <tbody id="country-tb">
+            
+        </tbody>
+    </table>
+
+
+    <script src="covid.js"></script>
+    <script>
+        console.log(data);
+        let global = data.Global;
+        let country = data.Countries;
+        console.log(country)
+        let td = document.getElementById("tb");
+        for(x in global){
+            console.log(x);
+            td.innerHTML += `
+                <tr>
+                    <td>${x}</td>
+                    <td>${global[x]}</td>
+                </tr>
+            `;
+        }
+        let countryTb = document.getElementById("country-tb");
+        let i = 1;
+        for(x of country){
+            // console.log(x);
+            countryTb.innerHTML += `
+                <tr>
+                    <td>${i}</td>
+                    <td>${x.Country}</td>
+                    <td>${x.NewConfirmed}</td>
+                    <td>${x.NewDeaths}</td>
+                    <td>${x.NewRecovered}</td>
+                    <td>${x.TotalConfirmed}</td>
+                    <td>${x.TotalDeaths}</td>
+                    <td>${x.TotalRecovered}</td>
+                </tr>
+                `;
+                i++;
+        }
+    </script>
+</body>
+</html>

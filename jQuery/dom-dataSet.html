@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax testing</title>
+</head>
+<body>
+    <p id="p" title="i am testing">this is p tag</p>
+    <input type="text" id="input">
+    <select name="" id="select">
+        <option value="mm">mm</option>
+        <option value="cn">china</option>
+        <option value="kr">korea</option>
+    </select>
+
+    <button id="btn">click</button>
+
+    <script src="../jQuery/js/jquery.js"></script>
+    <script>
+        //trying to write get method
+        //test(),html(),val(),attr()
+        $("#btn").click(function(){
+            let d = $("#p").attr("title","i wanna change")
+        })
+    </script>
+</body>
+</html>

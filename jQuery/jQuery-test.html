@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .obj{
+            width: 300px;
+            height: 100px;
+            background-color: gray;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="hidden">hide</button>
+    <button class="show">show</button>
+    <button class="toggle">toggle</button>
+
+    <div class="obj"></div>
+
+    <script src="../jQuery/js/jquery.js"></script>
+    <script>
+        $(".hidden").click(function(){
+            $(".obj").fadeOut(1000).hide(1000);
+        })
+        $(".show").click(function(){
+            $(".obj").fadeIn(1000).show();
+        })
+        $(".toggle").click(function(){
+            $(".obj").fadeToggle().toggle();
+        })
+    </script>
+</body>
+</html>

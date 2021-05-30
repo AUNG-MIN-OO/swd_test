@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="one">
+        <p id="three">this is one</p>
+        <p id="two">this is two</p>
+    </div>
+    <script>
+        // let body = document.body;
+        // let p = document.createElement("p");
+        // let t = document.createTextNode("this is text");
+        // p.appendChild(t);
+        // body.appendChild(p);
+        // body.insertBefore(p,two);
+        // let body = document.body;
+        
+        var para = document.createElement("p");
+        var node = document.createTextNode("this is replacement.");
+        para.appendChild(node);  
+
+        var parent = document.getElementById("one");
+        var child = document.getElementById("three");
+        parent.replaceChild(para, child);
+
+    </script>
+</body>
+</html>

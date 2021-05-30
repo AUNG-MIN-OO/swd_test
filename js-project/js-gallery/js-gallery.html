@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local storage</title>
+</head>
+<body>
+    <input type="text" id="input">
+    <br>
+    <ul id="list"></ul>
+    <script>
+        let input = document.getElementById("input");
+        let list = document.getElementById("list");
+        let k = Object.keys(localStorage);
+            k.sort();
+        
+
+
+        let id = 1;
+        //to get all saved items
+        if(localStorage.length>0 ){
+            id = Number(k[k.length-1])+1;
+        }
+
+        //to save in local storage
+        function save (x){
+            localStorage.setItem(id,x);
+            id++;
+        }
+
+        function addToList (x,y){
+            //<li>aung</li>
+            let li = document.createElement("li");
+            let text = document.createTextNode("-"+x);
+
+            // <button onclick="del()">Delete</button>
+            let btn = document.createElement("button");
+            let btnText = document.createTextNode("Delete");  
+            btn.appendChild(btnText);
+            btn.setAttribute("onclick","del("+y+")");
+
+            //<button onclick="edit()">Edit</button>
+            let editBtn= document.createElement("button");
+            let editText = document.createTextNode("Edit");
+            editBtn.appendChild(editText);
+            editBtn.setAttribute("onclick","edit("+y+")");
+            
+            li.appendChild(btn);
+            li.appendChild(editBtn);
+            li.appendChild(text);
+            li.setAttribute("id","list-"+y);
+            list.appendChild(li);
+            input.value = "";//a lut pyit ag loat neee
+        }
+
+        //to show items from local storage
+        function showList(){
+            // for(let i = 1;i <= localStorage.length; i++){
+            //     addToList(localStorage.getItem(i));
+            // }
+            
+            k.map((el)=>{
+                addToList(localStorage.getItem(el),el);
+            })
+
+        }
+
+        function del(x){
+            console.log(x);
+            localStorage.removeItem(x);
+            let current = document.getElementById("list-"+x);
+            current.remove();
+        }
+
+        function edit(x){
+            console.log(x);
+            let current = document.getElementById("list-"+x).childNodes;
+            console.log(current);
+            // let current = document.getElementById(`listText${listId}`);
+            let newText = prompt("Say Something",current.item(2).nodeValue);
+            localStorage.setItem(x,newText);
+            current.innerHTML = newText;
+            if (newText) {
+                current.item(2).nodeValue=newText;
+            } else {
+                console.log("cancel");
+            }
+            // console.log("item(2)");
+        }
+
+        
+
+        document.addEventListener("keyup",function (e){
+            if(e.keyCode ==13){
+                let note = input.value;
+                addToList(note);
+                save(note);
+                edit(note);
+                console.log(note);
+            } 
+        });
+
+        showList();
+
+    </script>
+</body>
+</html>

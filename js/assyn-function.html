@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Function</title>
+</head>
+<body>
+    <script>
+
+        //async => await
+
+        //promise | resolve--> then | reject --> catch
+        // async function bb(){
+        //     console.log("aa");
+        //     console.log("ab");
+        //     console.log("ac");
+        //     console.log("ad");
+
+        // }
+
+        let y = new Promise (function(resolve){
+            setTimeout(() => {
+                resolve("this is y");
+            }, 2000);
+        });
+        y.then(function(aa){
+            console.log(aa);
+        })
+
+
+    </script>
+</body>
+</html>

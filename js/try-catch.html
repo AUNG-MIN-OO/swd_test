@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closures</title>
+</head>
+<body>
+    <script>
+        //try catch finally throw
+        let x = {name:"aung aung", age:33,job : null};
+
+        try{
+            console.log("code start");
+            // aa();
+            if(x.job){
+                console.log(x);
+            }else{
+                throw new SyntaxError ("no job");
+            }
+            console.log("code end");
+        }catch(error){
+            console.log(error.message);
+        }finally{
+            console.log("this is final");
+        }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event delegation</title>
+</head>
+<body>
+    <h4>Event Delegation</h4>
+    <ul id="output"></ul>
+    <button id="showList">showlist</button>
+    <script>
+        let output = document.getElementById("output");
+        let arr = ["orange","apple","mango","pineapple","papaya"];
+
+        let addLi = function (x) {
+            let li = document.createElement("li");
+            let content = document.createTextNode(x);
+            li.appendChild(content);//<li>sfasdfa</li> like this
+            output.appendChild(li);
+        }
+        
+
+        function showList(){
+            arr.map(function (el) {
+            addLi(el);
+        });
+        }
+        // let li = document.querySelectorAll("li");
+        // li.forEach (function(el){
+        //     el.addEventListener("click",function(){
+        //         console.log(el.innerHTML);
+        //     })
+        // });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,2 @@
+brand : Money Ex
+primary color : #a7ff83
